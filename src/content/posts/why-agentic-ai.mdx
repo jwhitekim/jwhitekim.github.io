@@ -1,0 +1,45 @@
+---
+title: "Why I Started Studying Agentic AI"
+date: "2025-01-01"
+tags: ["research", "agentic-ai", "personal"]
+summary: "The path from medical AI to building agents that see, reason, and act."
+---
+
+> This is a placeholder post. Fill in your own content.
+
+## Starting Point
+
+It wasn't agentic AI from the beginning. It started with computer vision — detecting people in indoor spaces, tracking movement, estimating crowd density.
+
+The work was concrete: YOLOv8m for detection, OC-SORT for tracking, Edge Density for estimation. When it all came together as a working system, something clicked.
+
+## The Question
+
+After building the crowd density pipeline, one question kept coming back:
+
+> "The system sees. But what does it *do* next?"
+
+Every response was hardcoded — thresholds, rules, static logic. The system couldn't adapt. It could observe but not reason.
+
+## The Turn
+
+At KINGPC, I sat through a talk on Agentic AI. The framing was simple: CV perceives, LLM reasons, agent acts.
+
+That was the missing piece. Not a better model — a better *system*.
+
+```python
+# Conceptual sketch
+agent = build_agent(
+    perceive=cv_pipeline,   # see
+    reason=llm_backbone,    # reason
+    act=tool_registry,      # act
+)
+```
+
+## Where I Am Now
+
+Research is underway at PRML Lab. The direction is clear even when the path isn't:
+
+**Build agents that operate in real environments — not benchmarks.**
+
+This blog is a record of that work.
