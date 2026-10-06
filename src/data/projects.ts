@@ -6,25 +6,19 @@ export interface Project {
   stack: string[]
   github?: string
   paper?: string
+  // 160px 썸네일 (public/images/ 기준 경로). imageHover 는 마우스를 올렸을 때 바뀌는 이미지
+  image?: string
+  imageHover?: string
   status: 'completed' | 'ongoing'
 }
 
 export const projects: Project[] = [
   {
-    id: 'indoor-congestion',
-    title: '실시간 실내 혼잡도 분석 시스템',
-    tags: ['CV', 'System Design'],
-    description:
-      'Real-time indoor crowd density analysis using YOLOv8m object detection, OC-SORT multi-object tracking, and Edge Density estimation — achieving 92% accuracy in real environments.',
-    stack: ['Python', 'YOLOv8m', 'OC-SORT', 'FastAPI', 'OpenCV'],
-    status: 'completed',
-  },
-  {
     id: 'agentic-ai-system',
     title: 'Agentic AI System',
     tags: ['Agentic AI', 'CV', 'LLM'],
     description:
-      'Integrating CV pipelines with LLM agents for perception-to-action in real environments. Exploring LangGraph-based agent loops with MCP tool calling. (In progress)',
+      '실제 환경에서 인식부터 행동까지 이어지도록 CV 파이프라인과 LLM 에이전트를 통합합니다. LangGraph 기반 에이전트 루프와 MCP 도구 호출을 탐구하고 있습니다. (진행 중)',
     stack: ['Python', 'LangGraph', 'Anthropic SDK', 'PyTorch', 'MCP'],
     status: 'ongoing',
   },

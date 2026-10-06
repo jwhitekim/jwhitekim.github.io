@@ -1,85 +1,44 @@
-import FadeIn from '../FadeIn'
-import { publications } from '../../data/publications'
+import { Fragment } from 'react'
+import Section from '../Section'
+import Entry from '../Entry'
+import SlashLinks from '../SlashLinks'
+import { publications, selfAuthor } from '../../data/publications'
 import { siteContent } from '../../data/siteContent'
 
 export default function Publications() {
+  const { publications: content } = siteContent
+
   return (
-    <section id="publications" className="container-wide section-block">
-      <hr className="divider section-divider" />
+    <Section id="publications" title={content.label}>
+      <ul className="entries">
+        {publications.map((pub) => {
+          const links = [
+            pub.url && { label: content.paperLabel, href: pub.url },
+            pub.code && { label: content.codeLabel, href: pub.code },
+          ].filter((link): link is { label: string; href: string } => Boolean(link))
 
-      <FadeIn>
-        <p className="section-label">{siteContent.publications.label}</p>
-      </FadeIn>
-
-      <div className="mx-auto flex max-w-4xl flex-col gap-5">
-        {publications.map((pub, i) => (
-          <FadeIn key={i} delay={0.1 + i * 0.06}>
-            <div
-              className="px-6 py-8"
-              style={{
-                background: 'var(--bg2)',
-                border: '1px solid var(--bdr)',
-                borderRadius: '12px',
-              }}
-            >
-              <div className="flex flex-col items-center gap-4">
-                <div className="flex flex-col items-center gap-3">
-                  <span
-                    className="text-sm font-semibold"
-                    style={{ color: 'var(--accent)' }}
-                  >
-                    {pub.year}
-                  </span>
-                  <div>
-                    <a
-                      href={pub.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-base font-semibold transition-colors"
-                      style={{ color: 'var(--txt)', textDecoration: 'none' }}
-                      onMouseEnter={(e) =>
-                        ((e.target as HTMLElement).style.color = 'var(--muted)')
-                      }
-                      onMouseLeave={(e) =>
-                        ((e.target as HTMLElement).style.color = 'var(--txt)')
-                      }
-                    >
-                      {pub.titleKo}
-                    </a>
-                    <p
-                      className="text-sm mt-2"
-                      style={{ color: 'var(--muted)', lineHeight: '1.55' }}
-                    >
-                      {pub.title}
-                    </p>
-                    <div className="flex flex-wrap justify-center gap-1.5 mt-3">
-                      {pub.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="tag"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                {pub.url !== '#' && (
-                  <a
-                    href={pub.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-sm font-semibold"
-                    style={{ color: 'var(--muted)', textDecoration: 'none' }}
-                  >
-                    {siteContent.publications.externalLinkLabel}
-                  </a>
-                )}
-              </div>
-            </div>
-          </FadeIn>
-        ))}
-      </div>
-    </section>
+          return (
+            <Entry key={pub.title} image={pub.image} imageHover={pub.imageHover} highlight={pub.highlight}>
+              <p className="entry-title">
+                {pub.url ? <a href={pub.url} target="_blank" rel="noreferrer">{pub.title}</a> : pub.title}
+              </p>
+              {pub.titleKo && <p className="text-muted">{pub.titleKo}</p>}
+              <p>
+                {pub.authors.map((author, i) => (
+                  <Fragment key={author}>
+                    {i > 0 && ', '}
+                    {author === selfAuthor ? <span className="entry-self">{author}</span> : author}
+                  </Fragment>
+                ))}
+              </p>
+              <p className="entry-meta">
+                {pub.venue}, {pub.location}, {pub.date}, {pub.pages}
+              </p>
+              {links.length > 0 && <SlashLinks links={links} />}
+            </Entry>
+          )
+        })}
+      </ul>
+    </Section>
   )
 }

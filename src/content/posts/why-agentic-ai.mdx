@@ -1,31 +1,31 @@
 ---
-title: "Why I Started Studying Agentic AI"
+title: "Agentic AI를 공부하기 시작한 이유"
 date: "2025-01-01"
 tags: ["research", "agentic-ai", "personal"]
-summary: "The path from medical AI to building agents that see, reason, and act."
+summary: "의료 AI에서 보고, 추론하고, 행동하는 에이전트를 만들기까지의 여정."
 ---
 
-> This is a placeholder post. Fill in your own content.
+> 이 글은 임시 게시물입니다. 직접 내용을 채워 주세요.
 
-## Starting Point
+## 출발점
 
-It wasn't agentic AI from the beginning. It started with computer vision — detecting people in indoor spaces, tracking movement, estimating crowd density.
+처음부터 Agentic AI였던 것은 아닙니다. 컴퓨터 비전에서 시작했습니다. 실내 공간에서 사람을 탐지하고, 움직임을 추적하고, 혼잡도를 추정하는 일이었습니다.
 
-The work was concrete: YOLOv8m for detection, OC-SORT for tracking, Edge Density for estimation. When it all came together as a working system, something clicked.
+작업은 구체적이었습니다. 탐지는 YOLOv8m, 추적은 OC-SORT, 추정은 Edge Density를 썼습니다. 이 모든 것이 하나의 동작하는 시스템으로 맞물렸을 때, 무언가 와닿았습니다.
 
-## The Question
+## 질문
 
-After building the crowd density pipeline, one question kept coming back:
+혼잡도 파이프라인을 만든 뒤, 한 가지 질문이 계속 떠올랐습니다.
 
-> "The system sees. But what does it *do* next?"
+> "시스템은 본다. 그런데 그다음에는 무엇을 *하는가*?"
 
-Every response was hardcoded — thresholds, rules, static logic. The system couldn't adapt. It could observe but not reason.
+모든 대응은 하드코딩이었습니다. 임계값, 규칙, 정적인 로직이었죠. 시스템은 적응하지 못했습니다. 관찰은 해도 추론은 하지 못했습니다.
 
-## The Turn
+## 전환점
 
-At KINGPC, I sat through a talk on Agentic AI. The framing was simple: CV perceives, LLM reasons, agent acts.
+KINGPC에서 Agentic AI 발표를 들었습니다. 틀은 단순했습니다. CV가 인식하고, LLM이 추론하고, 에이전트가 행동한다.
 
-That was the missing piece. Not a better model — a better *system*.
+그것이 빠져 있던 조각이었습니다. 더 좋은 모델이 아니라, 더 좋은 *시스템*이었습니다.
 
 ```python
 # Conceptual sketch
@@ -36,10 +36,10 @@ agent = build_agent(
 )
 ```
 
-## Where I Am Now
+## 지금은
 
-Research is underway at PRML Lab. The direction is clear even when the path isn't:
+PRML 연구실에서 연구를 진행하고 있습니다. 길은 분명하지 않아도 방향은 분명합니다.
 
-**Build agents that operate in real environments — not benchmarks.**
+**벤치마크가 아니라 실제 환경에서 동작하는 에이전트를 만든다.**
 
-This blog is a record of that work.
+이 블로그는 그 작업의 기록입니다.

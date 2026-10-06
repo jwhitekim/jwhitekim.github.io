@@ -29,7 +29,7 @@ const components = {
   h1: (p: object) => <h1 style={{ color: 'var(--txt)', fontSize: '1.5rem', fontWeight: 600, marginBottom: '1rem', marginTop: '2.5rem' }} {...p} />,
   h2: (p: object) => <h2 style={{ color: 'var(--txt)', fontSize: '1.125rem', fontWeight: 600, marginBottom: '0.75rem', marginTop: '2rem', paddingBottom: '0.5rem', borderBottom: '1px solid var(--bdr)' }} {...p} />,
   h3: (p: object) => <h3 style={{ color: 'var(--txt)', fontSize: '1rem', fontWeight: 500, marginBottom: '0.5rem', marginTop: '1.5rem' }} {...p} />,
-  p: (p: object) => <p style={{ color: 'var(--muted)', lineHeight: '1.75', marginBottom: '1rem', fontSize: '0.9375rem' }} {...p} />,
+  p: (p: object) => <p style={{ color: 'var(--txt)', lineHeight: '1.85', marginBottom: '1.25rem', fontSize: '1.0625rem' }} {...p} />,
   a: (p: object) => <a style={{ color: 'var(--txt)', textDecorationColor: 'var(--bdr)' }} {...p} />,
   code: ({ children, ...p }: { children?: React.ReactNode } & object) =>
     'data-language' in p

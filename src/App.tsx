@@ -8,22 +8,22 @@ import Experience from './components/sections/Experience'
 import Research from './components/sections/Research'
 import Publications from './components/sections/Publications'
 import Stack from './components/sections/Stack'
-import Writing from './components/sections/Writing'
 import Contact from './components/sections/Contact'
 import PostDetail from './pages/PostDetail'
 
 function HomePage() {
   return (
-    <>
+    <main className="page">
       <Intro />
       <Work />
       <Research />
       <Experience />
       <Publications />
       <Stack />
-      <Writing />
+      {/* 글 섹션: 실제 글이 쌓이면 다시 켠다 (메뉴바 nav 의 Writing 항목도 함께 복구) */}
+      {/* <Writing /> */}
       <Contact />
-    </>
+    </main>
   )
 }
 
